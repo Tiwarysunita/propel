@@ -1,0 +1,17 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { parseFile } from '@/lib/parseCV'
+
+export async function POST(req: NextRequest) {
+  try {
+    const formData = await req.formData()
+    const file = formData.get('file') as File
+    if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
+
+    const buffer = Buffer.from(await file.arrayBuffer())
+    const text = await parseFile(buffer, file.name)
+    return NextResponse.json({ text, name: file.name })
+  } catch (err) {
+    const message = err instanceof Error ? err.message : 'Parse failed'
+    return NextResponse.json({ error: message }, { status: 500 })
+  }
+}
