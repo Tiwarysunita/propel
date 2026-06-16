@@ -240,7 +240,7 @@ export default function ProfilePage() {
             <div className="flex-shrink-0 mx-auto md:mx-0">
               <div className="relative w-44 h-44 rounded-3xl overflow-hidden shadow-2xl shadow-violet-950/60"
                    style={{ boxShadow: '0 0 0 1px rgba(139,92,246,0.2), 0 25px 60px rgba(0,0,0,0.5)' }}>
-                <Image src="/sunita-profile.jpg" alt="Sunita Tiwary" fill className="object-cover object-top" priority />
+                <Image src="/sunita-profile-v2.jpg" alt="Sunita Tiwary" fill className="object-cover object-top" priority />
               </div>
             </div>
 
